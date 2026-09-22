@@ -82,24 +82,23 @@ auxiliar = 1432.12;
 console.log(auxiliar);
 
 // Ejemplo 7
-function ejemplo7() {
-    function potencia(base, exponente) {
+function potencia(base, exponente) {
 
-        let resultado = 1;
+    let resultado = 1;
 
-        for (let j = 0; j < exponente; j++) {
-            resultado *= base;
-        }
-
-        return resultado;
+    for (let j = 0; j < exponente; j++) {
+        resultado *= base;
     }
-    let base = window.prompt("Introduce la base: ");
-    let exponente = window.prompt("Introduce el exponente: ");
-    console.log(`El resultado de ${base} elevado a ${exponente} es: ${potencia(base, exponente)}`);
 
+    return resultado;
 }
+let base = 5;
+let exponente = 5;
 
-// ejemplo7();
+console.log(`El resultado de ${base} elevado a ${exponente} es: ${potencia(base, exponente)}`);
+
+
+
 
 
 
@@ -126,20 +125,82 @@ function ejemplo8() {
 
 // Ejemplo 9 Mas bucles, solicita numero y muestra acumulado de 10 en 10. Da error si introduces un numero negativo
 
-function suma_diez_v2(num_vueltas_2) {
-    let result = 0;
+function ejemplo9() {
+    function suma_diez_v2(num_vueltas_2) {
+        let result = 0;
 
-    if (num_vueltas_2 < 0) {
-        console.error("El número de vueltas debe ser positivo")
+        if (num_vueltas_2 < 0) {
+            console.error("El número de vueltas debe ser positivo")
 
-    } else {
-        for (let j = 0; j < num_vueltas_2; j++) {
-            result += 10;
+        } else {
+            for (let j = 0; j < num_vueltas_2; j++) {
+                result += 10;
+            }
         }
+
+        return result;
     }
 
-    return result;
+    let numero_vueltas_2 = window.prompt("Introduzca el numero de vueltas del bucle");
+    console.log(suma_diez_v2(numero_vueltas_2));
+
 }
 
-let numero_vueltas_2 = window.prompt("Introduzca el numero de vueltas del bucle");
-console.log(suma_diez_v2(numero_vueltas_2));
+// Ejemplo 10: Calculadora. Pide 2 numeros y muestra un menú para que los sume, reste, multiplique o divida segun la opcion marcada Valida los datos
+
+function ejemplo10() {
+    function calculadora() {
+        let result = 0;
+        let num1 = parseInt(window.prompt("Introduzca el primer numero: "));
+        let num2 = parseInt(window.prompt("Introduzca el segundo numero: "));
+
+        let salir = false;
+
+        do {
+            let opcion = window.prompt("Elija una operación: \n" +
+                "a. Suma \n" +
+                "b. Resta \n" +
+                "c. Multiplicacion \n" +
+                "d. Division \n" +
+                "e. Potencia \n" +
+                "f. Salir");
+
+            switch (opcion) {
+                case "a":
+                    result = num1 + num2;
+                    console.log(`El resultado de sumar ambos números es  ${result}`);
+                    break;
+                case "b":
+                    result = num1 - num2;
+                    console.log(`El resultado de restar ambos números es  ${result}`);
+                    break;
+                case "c":
+                    result = num1 * num2;
+                    console.log(`El resultado de multiplicar ambos números es  ${result}`);
+                    break;
+                case "d":
+                    if (num2 == 0) {
+                        console.error("No se puede dividir por 0 ya que el resultado es Infinito")
+                    } else {
+                        result = num1 / num2;
+                        console.log(`El resultado de dividir ambos números es  ${result}`);
+                    }
+                    break;
+                case "e":
+                    resultado = potencia(num1, num2);
+                    break;
+                case "f":
+                    salir = true;
+                    console.log("Ha seleccionado Salir de la Calculadora, Hasta la próxima");
+                    break;
+                default:
+                    console.error("Debe introducir un opción válida");
+                    salir = true;
+            }
+        } while (!salir);
+
+    }
+    calculadora();
+}
+
+ejemplo10();

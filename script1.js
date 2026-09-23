@@ -146,6 +146,7 @@ function ejemplo9() {
 
 }
 
+// ejemplo9();
 // Ejemplo 10: Calculadora. Pide 2 numeros y muestra un menú para que los sume, reste, multiplique o divida segun la opcion marcada Valida los datos
 
 function ejemplo10() {
@@ -197,10 +198,11 @@ function ejemplo10() {
                     console.error("Debe introducir un opción válida");
                     salir = true;
             }
+
         } while (!salir);
 
     }
     calculadora();
 }
 
-ejemplo10();
+// ejemplo10();

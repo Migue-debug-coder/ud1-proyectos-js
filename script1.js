@@ -285,7 +285,7 @@ function ejemplo13(){
     if(intentos > 10){
         console.log("Has perdido porque has pasado de los 10 intentos");
     }else if(intentos < 10){
-        console.log("Lo has hecho en menos de 10 intentos, Muy bien");
+        console.log("Lo has hecho en menos de 10 intentos concretamente en "+ intentos+" , Muy bien");
     }
 }
 

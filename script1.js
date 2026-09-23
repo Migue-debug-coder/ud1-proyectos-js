@@ -206,3 +206,87 @@ function ejemplo10() {
 }
 
 // ejemplo10();
+
+// Ejemplo Ternario
+function ejemplo11() {
+    let precio = 150;
+    
+    console.log("Precio original: " + precio);
+
+    let edad = window.prompt("Introduce tu edad: ");
+
+    // if(edad >= 18){
+    //     precio = precio * 0.80;
+    // }else{
+    //     precio = precio * 0.75
+    // }
+
+    precio = (edad >= 18) ? precio * 0.80 : precio * 0.75;
+
+    console.log("El precio tras el descuento es: " + precio);
+}
+
+// ejemplo11();
+
+// Ejemplo 12: Pide el precio del producto por pantalla. Si es superior a 50 euros
+// el envío sale gratis. Si no es 5€. El sistema debe mostrar al principio el precio original
+// y al final el precio total
+
+function ejemplo12(){
+
+    let precio = parseInt(window.prompt("Introduzca el precio del producto: "));
+
+    console.log("El precio orignial del producto es de " + precio + " euros")
+
+    precio = (precio > 50) ? precio : precio + 5;
+    
+    console.log("El precio definitivo del producto más los posibles gastos de envío es de "+ precio + " euros");
+
+
+}
+
+// ejemplo12();
+
+// Ejemplo 13: Crea un programa que calcule un número aleatorio y pida al usuario números hasta que el usuario 
+// hasta que lo acierte. Al finalizar, si el número de intentos es superior a 10
+// pintará por pantalla !Has perdido! y ¡Has ganado! si es inferior.
+
+function ejemplo13(){
+    
+    let numero_aleatorio = Math.floor(Math.random() * 100 + 1);
+
+    let numero_usuario;
+
+    let intentos = 0;
+
+    let intentos_restantes = 20;
+
+    while(numero_aleatorio != numero_usuario && intentos_restantes != 0){
+
+        numero_usuario = parseInt(window.prompt("Introduzca un número: "));
+
+        intentos++;
+
+        intentos_restantes--;
+
+        if (intentos_restantes == 0){
+            console.log("Te has quedado sin intentos");
+        }else if(numero_usuario < numero_aleatorio){
+            console.log("El número introducido es menor que el aleatorio");
+        }else if(numero_usuario > numero_aleatorio){
+            console.log("El número introducido es mayor que el aleatorio");
+        }else if(numero_usuario == numero_aleatorio){
+            console.log("Has acertado el número aleatorio que era "+ numero_aleatorio);
+        }
+        
+
+    }
+
+    if(intentos > 10){
+        console.log("Has perdido porque has pasado de los 10 intentos");
+    }else if(intentos < 10){
+        console.log("Lo has hecho en menos de 10 intentos, Muy bien");
+    }
+}
+
+ejemplo13();

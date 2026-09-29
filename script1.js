@@ -416,11 +416,43 @@ function ejemplo18(){
     
 }
 
-ejemplo18();
+// ejemplo18();
 
 // Ejemplo 19: Muestra todos los divisores de un número solicitado por pantalla
+// Puede hacerse almacenando los divisores en un array y despues imprimir los divisores del numero tal son: "E imprimimos el array"
+function ejemplo19(){
+    const num = parseInt(window.prompt("Introduce un numero: "));
 
+    for(let i = 0; i < num; i++){
+        if(num % i == 0){
+            console.log(i);
+        }
+    }
+}
 
+// ejemplo19();
 
 // Ejemplo 20: Número perfecto: Pide un número y determina si es perfecto.
 // Un número es perfecto cuando la suma de sus divisores propios sea igual al propio número.
+
+function ejemplo20(){
+
+    const num = parseInt(window.prompt("Introduzca un número: "));
+
+    let suma_divisores = 0;
+
+    for(let i = 0; i < num; i++){
+        if(num % i == 0){
+            suma_divisores += i;
+        }
+    }
+
+    if(suma_divisores == num){
+        console.log("Su número es perfecto");
+    }else{
+        console.log("Su número no es perfecto");
+    }
+
+}
+
+ejemplo20();

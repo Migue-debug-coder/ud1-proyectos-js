@@ -196,8 +196,7 @@ function ejercicio13() {
             "b. Resta \n" +
             "c. Multiplicacion \n" +
             "d. Division \n" +
-            "e. Potencia \n" +
-            "f. Salir");
+            "e. Salir");
 
         switch (opcion) {
             case "a":
@@ -221,9 +220,6 @@ function ejercicio13() {
                 }
                 break;
             case "e":
-                resultado = potencia(num1, num2);
-                break;
-            case "f":
                 salir = true;
                 console.log("Ha seleccionado Salir de la Calculadora, Hasta la próxima");
                 break;
@@ -235,4 +231,242 @@ function ejercicio13() {
     } while (!salir);
 }
 
-ejercicio13();
+// ejercicio13();
+
+function ejercicio14() {
+     for(let i = 1; i <= 10; i++){
+        console.log(i);
+     }
+}
+
+// ejercicio14();
+
+
+function ejercicio15() {
+    
+    for(let i = 1; i <= 100; i++){
+        if(i % 2 == 0){
+            console.log(i);
+        }
+    }
+}
+
+// ejercicio15();
+
+function ejercicio16(){
+    const num = parseInt(window.prompt("Introduzca un número para ver su tabla de multiplicar: "));
+
+    console.log(`Tabla de multiplicar del ${num}:`);
+
+    for(let i = 1; i <= 10;i++){
+        console.log(`${num} x ${i} = ${num*i}`);
+    }
+
+}
+
+// ejercicio16();
+
+function ejercicio17(){
+    const num = parseInt(window.prompt("Introduzca un número: "));
+
+    let suma = 0;
+
+    for(let i = 2; i < num; i++){
+        suma += i;
+    }
+
+    console.log(`El resultado de sumar los números comprendidos entre 1 y ${num} es: ${suma}`);
+
+}
+
+// ejercicio17();
+
+function ejercicio18(){
+    const num = parseInt(window.prompt("Introduzca un número: "));
+
+    let factorial = 1;
+    
+    for(let i = 1; i <= num; i++){
+        factorial *= i;
+    }
+
+    console.log(`El factorial de ${num} es: ${factorial}`);
+
+}
+
+// ejercicio18();
+
+function ejercicio19(){
+    const num = parseInt(window.prompt("Introduzca un número: "));
+
+    console.log(`Los múltiplos de 3 comprendidos entre 1 y ${num} son: `);
+
+
+    for(let i = 2; i < num; i++){
+        if(i % 3 == 0){
+            console.log(i);
+        }
+    }
+}
+
+// ejercicio19();
+
+function ejercicio20(){
+    let nombre = window.prompt("Introduzca su nombre: ")
+    saluda(nombre);
+}
+
+function saluda(nombre){
+    console.log(`Buenas tardes ${nombre}`);
+}
+
+// ejercicio20();
+
+function ejercicio21(){
+    let base = parseFloat(window.prompt("Introduzca la base: "));
+    let altura = parseFloat(window.prompt("Introduzca la altura: "));
+    calcularArea(base,altura);
+}
+
+function calcularArea(base,altura){
+    let area = base * altura;
+
+    console.log(`El área resultante es: ${area}`);
+}
+
+// ejercicio21();
+
+function ejercicio22(){
+    const edad = parseInt(window.prompt("Introduzca su edad: "));
+
+    esMayorDeEdad(edad);
+
+}
+
+function esMayorDeEdad(edad){
+    if(edad <= 0){
+        console.error("No se puede tener una edad negativa o 0");
+    }else if(edad >= 18){
+        console.log("Eres mayor de edad")
+        if(edad >= 100){
+            console.log("Tienes más de 100 años, eres muy longevo enhorabuena");
+        }
+    }else if(edad < 18){
+        console.log("Eres menor de edad");
+    }
+}
+
+// ejercicio22();
+
+function ejercicio23(){
+    let num1 = parseFloat(window.prompt("Introduzca el número 1: "));
+    let num2 = parseFloat(window.prompt("Introduzca el número 2: "));
+
+    esMayor(num1,num2);
+
+}
+
+function esMayor(num1, num2){
+    let mayor = 0;
+    let menor = 0;
+
+    if(num1 > num2){
+        mayor = num1;
+        menor = num2;
+    }else if(num1 < num2){
+        mayor = num2;
+        menor = num1;
+    }
+
+    console.log(`El número ${mayor} es mayor que el ${menor}`);
+}
+
+// ejercicio23();
+
+//El 24 es el mismo que el 3
+
+function ejercicio25(){
+    let num1 = parseFloat(window.prompt("Introduzca un número: "));
+    let num2 = parseFloat(window.prompt("Introduzca un número: "));
+
+    calculadora(num1,num2);
+
+}
+
+function suma(num1,num2){
+    console.log(`El resultado de sumar ${num1} y ${num2} es: ${num1 + num2}`);
+}
+function resta(num1,num2){
+    console.log(`El resultado de restar ${num1} y ${num2} es: ${num1 - num2}`);
+}
+function multiplicacion(num1,num2){
+    console.log(`El resultado de multiplicar ${num1} y ${num2} es: ${num1 * num2}`);
+}
+function division(num1,num2){    
+    if(num2 == 0){
+        console.error("No se puede dividir por 0 ya que el resultado es Infinito");
+    }else{
+        console.log(`El resultado de dividir ${num1} y ${num2} es: ${num1 / num2}`);
+    }
+}
+
+function calculadora(num1,num2){
+    console.log("Bienvenido a la calculadora. \n",
+        "a) Suma \n",
+        "b) Resta \n",
+        "c) Multiplicación \n",
+        "d) División \n",
+        "e) Salir \n",
+    );
+
+    let operacion = window.prompt("¿Que operación desea realizar?: ");
+
+    switch(operacion){
+        case "a":
+            suma(num1,num2);
+            break;
+        case "b":
+            resta(num1,num2);
+            break;
+        case "c":
+            multiplicacion(num1,num2);
+            break;
+        case "d":
+            division(num1,num2);
+            break;
+        case "e":
+            console.log("Ha seleccionado salir de la calculadora. Hasta la próxima");
+            break;
+        default:
+            console.error("Introduzca una opción válida")
+            break;
+    }
+}
+// ejercicio25();
+
+function ejercicio26(){
+    let nota = parseFloat(window.prompt("Introduzca una nota: "));
+    console.log(validadorNotas(nota));
+}
+
+function validadorNotas(nota){
+    let mensaje = null;
+
+    if(nota < 0 || nota > 10){
+        mensaje = "Debes introducir una nota válida";
+    }else if(nota >= 0 && nota < 5){
+        mensaje = "Suspenso";
+    }else if(nota >= 5 && nota < 6){
+        mensaje = "Suficiente";
+    }else if(nota >= 6 && nota < 7){
+        mensaje = "Bien";
+    }else if(nota >= 7 && nota < 9){
+        mensaje = "Notable";
+    }else if(nota >= 9 && nota <= 10){
+        mensaje = "Sobresaliente";
+    }
+
+    return mensaje;
+}
+
+ejercicio26();

@@ -878,3 +878,27 @@ function ejercicio33(){
 
 
 ejercicio33();
+
+// Ejercicio 35: Control de acceso. Crea un programa que simule el acceso a una aplicación. El
+// programa tendrá un usuario y una contraseña almacenados en variables. El
+// usuario dispondrá de un máximo de tres intentos para introducir correctamente
+// ambos datos. Crea una función que compruebe las credenciales y otra que
+// muestre el resultado del acceso. Si se superan los tres intentos, el acceso deberá
+// quedar bloqueado.
+
+
+function ejercicio35(){
+    let usuario;
+    let contraseña;
+    let intentos = 3;
+
+    for(let i = 0; i < intentos; i++){
+
+    }
+}
+
+function comprobar_credenciales(usuario,contraseña){
+    if(usuario != null){
+
+    }
+}

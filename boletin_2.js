@@ -105,12 +105,24 @@ function ej5(){
     }
 }
 // ej5();
-// window.localStorage.clear();
+function vaciarLocalStorage(){
+    window.localStorage.clear();
+}
+
 
 //Ejercicio 6
 //Contador de recargas. Cada vez que el usuario abra la página,
 //acceda o actualice debe incrementar el numero de visitas.
 
 function ej6(){
-    
+    let visitas = window.localStorage.getItem("visitas");
+    let contador = visitas != null? parseInt(visitas) : 0;
+    contador++;
+    // Si visitas no existe en localStorage la crea con valor contador
+    // Si existe, modifica su valor a contador
+    window.localStorage.setItem("visitas",contador);
+    document.getElementById("visitas").textContent = contador;
+    console.log(contador);
 }
+
+ej6();

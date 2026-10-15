@@ -706,4 +706,175 @@ function calculadora_avanzada(num1,num2) {
 
 }
 
-ejercicio30();
+// ejercicio30();
+
+// Ejercicio 31:  Sistema de calificaciones. Crea un programa que permita introducir las notas de
+// un alumno. El programa deberá solicitar inicialmente el número de notas que se
+// van a introducir y, mediante un bucle, solicitar cada una de ellas. Utiliza funciones
+// para calcular la nota media y determinar la calificación final: Suspenso, Aprobado,
+// Notable o Sobresaliente. Comprueba que las notas introducidas estén
+// comprendidas entre 0 y 10.
+
+
+function ejercicio31(){
+    let num_notas = parseInt(window.prompt("Introduce el numero de notas: "));
+    let acum_notas = 0;
+
+    for(let i = 0; i < num_notas; i++){
+        let nota = parseFloat(window.prompt(`Introduce la nota ${i+1}`));
+        acum_notas += nota;
+    }
+
+    const nota_final = (acum_notas/num_notas).toFixed(2);
+    console.log(`Tu nota final es ${nota_final} y es: ${calificacion_final(nota_final)}`);
+
+}
+
+function calificacion_final(nota){
+    
+    let result;
+    
+    switch(true){
+        case nota >= 0 && nota < 5:
+            result = "SUSPENSO";
+            break;
+        case nota >= 5 && nota < 6:
+            result = "APROBADO";
+            break;
+        case nota >= 6 && nota < 7:
+            result = "APROBADO";
+            break;
+        case nota >= 7 && nota < 9:
+            result = "NOTABLE";
+            break;
+        case nota >= 9 && nota <= 10:
+            result = "SOBRESALIENTE";
+            break;
+        default:
+            result = "NOTA NO VÁLIDA";
+            break;
+    }
+
+    return result;
+}
+
+// ejercicio31();
+
+// Ejercicio 32: Cajero automático. Simula el funcionamiento de un cajero automático. El usuario
+// comienza con un saldo determinado y puede consultar su saldo, retirar dinero,
+// ingresar dinero o salir. Crea una función para cada operación y utiliza un menú
+// que se repita hasta seleccionar la opción de salida. El programa deberá impedir
+// retirar una cantidad superior al saldo disponible y cantidades negativas o iguales a
+// cero.
+
+function ejercicio32(){
+    let saldo = 1000;
+    let opc;
+    do{
+        opc = parseInt(window.prompt("Introduce una opción: \n"
+            + "1. Consulta tu saldo\n"
+            + "2. Retirar Dinero\n"
+            + "3. Ingresar Dinero\n"
+            + "4. Salir"));
+
+        switch(opc){
+            case 1:
+                console.log(`Su saldo actual es ${saldo}`);
+                break;
+            case 2: 
+                const retirar = parseFloat(window.prompt("Cuanto vas a retirar: "))
+                saldo = retirar_dinero(saldo,retirar);
+                break;
+            case 3:
+                const ingresar = parseFloat(window.prompt("Cuanto vas a ingresar"));
+                saldo = ingresar_dinero(saldo,ingresar);
+                break;
+            case 4:
+                console.log("Gracias por usar nuestro servicio de cajero")
+                break;
+            default:
+                console.log("Introduzca una opción válida");
+                break;
+        }
+    }while(opc != 4);
+}
+
+function retirar_dinero(saldo, retirar){
+   
+    let result = saldo;
+
+    if(saldo < retirar){
+        console.error("No se puede retrirar más dinero del que se dispone");
+    }else if(retirar <= 0){
+        console.error("Debes retirar una cantidad positiva");
+    }else if(isNaN(retirar)){
+        console.error("Debes introducir una cantidad válida");
+    }else{
+        result = saldo - retirar;
+    }
+
+    return result;
+}
+
+function ingresar_dinero(saldo, ingresar){
+   
+    let result = saldo;
+
+    if(ingresar <= 0){
+        console.error("Debes retirar una cantidad positiva");
+    }else if(isNaN(ingresar)){
+        console.error("Debes introducir una cantidad válida");
+    }else{
+        result = saldo + retirar;
+    }
+
+    return result;
+}
+
+// ejercicio32();
+
+// Ejercicio 33: Juego de adivinanza. Crea un juego en el que el programa genere un número
+// aleatorio entre 1 y 100 y el usuario tenga que adivinarlo. Después de cada intento,
+// el programa indicará si el número introducido es mayor o menor que el número
+// secreto. El juego deberá contar el número de intentos y finalizar cuando el jugador
+// acierte. Organiza el programa utilizando funciones. (Lo hice igual que el 28)
+
+function ejercicio33(){
+    let numero_aleatorio = Math.floor(Math.random() * 100 + 1);
+
+    let numero_usuario;
+
+    let intentos = 0;
+
+    let intentos_restantes = 10;
+
+    while (numero_aleatorio != numero_usuario && intentos_restantes != 0) {
+
+        numero_usuario = parseInt(window.prompt("Introduzca un número: "));
+
+        intentos++;
+
+        intentos_restantes--;
+
+        if (intentos_restantes == 0) {
+            console.log("Te has quedado sin intentos");
+        } else if (numero_usuario < numero_aleatorio) {
+            console.log("El número introducido es menor que el aleatorio");
+        } else if (numero_usuario > numero_aleatorio) {
+            console.log("El número introducido es mayor que el aleatorio");
+        } else if (numero_usuario == numero_aleatorio) {
+            console.log("Has acertado el número aleatorio que era " + numero_aleatorio);
+        }
+
+
+    }
+
+    if (intentos > 10) {
+        console.log("Has perdido porque has pasado de los 10 intentos");
+    } else if (intentos <= 10) {
+        console.log("Lo has hecho concretamente en " + intentos + " , Muy bien");
+    }
+}
+
+
+ejercicio33();
